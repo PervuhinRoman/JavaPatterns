@@ -2,14 +2,14 @@ package com.company;
 
 public class Main {
 
-    public static interface Moveable {
+    static interface Moveable {
         void move(float dx, float dy);
         void resize(float koeff);
     }
 
-    public static abstract class Figure implements Moveable{
-        private float x;
-        private float y;
+    static abstract class Figure implements Moveable{
+        float x;
+        float y;
 
         public Figure(float x, float y){
             this.x = x;
@@ -18,13 +18,13 @@ public class Main {
 
         public abstract float getArea();
         public abstract float getPerimeter();
-        
-        
+
+        void Center(){}
     }
 
-    public static class Rectangle extends Figure {
-        private float height;
-        private float width;
+    static class Rectangle extends Figure {
+        float height;
+        float width;
 
         public Rectangle(float x, float y, float height, float width) {
             super(x, y);
@@ -53,10 +53,20 @@ public class Main {
             this.width *= koeff;
             this.height *= koeff;
         }
+
+        @Override
+        void Center(){
+            System.out.println("Center: (" + (x + (width / 2)) + ", " + (y + (height / 2)) + ")");
+        }
+
+        @Override
+        public String toString() {
+            return ("Rectangle" + "\n" + "Center: " + "(" + (x + height / 2) + ", " + (y + width / 2) + ")" + "\n" + "Height: " + height + "\n" + "Width: " + width);
+        }
     }
 
-    public static class Circle extends Figure {
-        private float radius;
+    static class Circle extends Figure {
+        float radius;
 
         public Circle(float x, float y, float radius) {
             super(x, y);
@@ -83,12 +93,23 @@ public class Main {
         public void resize(float koeff) {
             this.radius *= koeff;
         }
+
+        @Override
+        void Center(){
+            System.out.println("Center: (" + x + ", " + y + ")");
+        }
+
+        @Override
+        public String toString() {
+            return ("Circle" + "\n" + "Center: " + "(" + x + ", " + y + ")" + "\n" + "Radius: " + radius);
+        }
     }
 
     public static void main(String[] args) {
         Circle circle = new Circle(10, 10, 1);
         Rectangle rectangle = new Rectangle(10, 10, 1, 1);
-        System.out.println(circle.getArea());
-        System.out.println(rectangle.getPerimeter());
+        System.out.println(circle);
+        System.out.println();
+        System.out.println(rectangle);
     }
 }
