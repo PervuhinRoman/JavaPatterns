@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 int arg2 = Integer.parseInt(argument2.getText().toString());
                 answer.setText(Integer.toString(arg1 + arg2));
 
-                // TODO add try-catch
+                // TODO add try-catch in all method onClick
             }
         });
 
