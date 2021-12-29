@@ -58,8 +58,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     answer.setText(Integer.toString(Integer.parseInt(argument1.getText().toString()) * Integer.parseInt(argument2.getText().toString())));
-                } catch (ArithmeticException e){
-                    answer.setText("Div by zero");
+                } catch (NumberFormatException e){
+                    answer.setText("Input Error");
                     Log.d(LOG_TAG, e.getMessage());
                     Log.d(LOG_TAG, e.toString());
                 }
@@ -88,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     answer.setText(Integer.toString(Integer.parseInt(argument1.getText().toString()) - Integer.parseInt(argument2.getText().toString())));
-                } catch (ArithmeticException e){
-                    answer.setText("Div by zero");
+                } catch (NumberFormatException e){
+                    answer.setText("Input Error");
                     Log.d(LOG_TAG, e.getMessage());
                     Log.d(LOG_TAG, e.toString());
                 }
