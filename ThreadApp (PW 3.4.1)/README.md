@@ -15,3 +15,10 @@ Handler handler = new Handler(Looper.getMainLooper());
                 }
             });
  ```
+
+### Полезные ссылки:
+* [Откуда узнал про Handler](https://android-tools.ru/coding/zamena-asynctask-v-prilozhenii/)
+* [Как применять Handler](https://itsobes.ru/AndroidSobes/chto-takoe-handler/)
+* [Что такое Looper](https://itsobes.ru/AndroidSobes/chto-takoe-looper/)
+* [Ещё про Handler](http://developer.alexanderklimov.ru/android/theory/handler.php)
+* [Официальная инфа про Handler](https://developer.android.com/reference/android/os/Handler)
