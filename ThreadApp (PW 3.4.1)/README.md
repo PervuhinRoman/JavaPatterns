@@ -4,7 +4,7 @@
 ее на экран.
 Картинку из интернета можно загрузить по ссылке.
 
-## Полезное
+## О коде:
 * Поток создан с помощью интерфеса `Runnable`
 * Для обращения к UI использован класс `Handler`
 ```java
@@ -16,7 +16,7 @@ Handler handler = new Handler(Looper.getMainLooper());
             });
  ```
 
-### Полезные ссылки:
+## Полезные ссылки:
 * [Откуда узнал про Handler](https://android-tools.ru/coding/zamena-asynctask-v-prilozhenii/)
 * [Как применять Handler](https://itsobes.ru/AndroidSobes/chto-takoe-handler/)
 * [Что такое Looper](https://itsobes.ru/AndroidSobes/chto-takoe-looper/)
