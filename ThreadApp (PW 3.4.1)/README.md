@@ -15,6 +15,15 @@ Handler handler = new Handler(Looper.getMainLooper());
                 }
             });
  ```
+ * Или более понятный способ через метод `post` класса `View`:
+ ```java
+ image.post(new Runnable() {
+     @Override
+     public void run() {
+         image.setImageBitmap(bitmap);
+     }
+ });
+ ```
 
 ## Полезные ссылки:
 * [Откуда узнал про Handler](https://android-tools.ru/coding/zamena-asynctask-v-prilozhenii/)
