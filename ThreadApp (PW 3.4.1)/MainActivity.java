@@ -65,9 +65,17 @@ public class MainActivity extends AppCompatActivity {
             }
 
             // Класс handler позволяет отправлять сообщения в другие потоки, включая главный UI поток
-            Handler handler = new Handler(Looper.getMainLooper());
+            /*Handler handler = new Handler(Looper.getMainLooper());
             handler.post(new Runnable() {
                 @Override public void run() {
+                    image.setImageBitmap(bitmap);
+                }
+            });*/
+          
+          // метод post класса View позволяет взаимодествовать с UI-элементами главного UI-потока
+            image.post(new Runnable() {
+                @Override
+                public void run() {
                     image.setImageBitmap(bitmap);
                 }
             });
