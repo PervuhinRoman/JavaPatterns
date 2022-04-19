@@ -20,7 +20,7 @@ public class Generation {
     static String[] actions = {"+", "-"}; // для генерации
     static String prevAction;             // для генерации
 
-    static ArrayList<String> itemAnswers = new ArrayList<>(answersCount);          // массив рандомных ответов
+    static ArrayList<ArrayList<String>> answers = new ArrayList<>();   // ответы
 
     static List<Integer> userAnswers = new ArrayList<>();              // массив пользовательских ответов
     static List<Integer> rightAnswers = new ArrayList<>();             // массив правильных ответов
@@ -80,10 +80,9 @@ public class Generation {
         return Integer.toString(number);
     }
 
-    static int cnt = 0;
-
     public static void mGen(){
         numberGeneration(numbersCount, numbersRange);
+        ArrayList<String> itemAnswers = new ArrayList<>();
         String number;
         String action;
 
@@ -121,9 +120,8 @@ public class Generation {
             }
         }
 
-        //System.out.println(itemAnswers);
-
-        itemAnswers.clear();
+        // добавляем текущие сненерированные ответы к общему стеку
+        answers.add(itemAnswers);
 
         rightAnswers.add(rightAnswer);
         // обнуляем правильный ответ
@@ -134,7 +132,6 @@ public class Generation {
         question = "";
 
         // отчищаем массив рандомных ответов и т.д.
-
         alreadyGeneratedNumbers.clear();
         alreadyGeneratedAnswers.clear();
     }
@@ -144,11 +141,10 @@ public class Generation {
         for (int i = 0; i < questionsCount; i++){
             mGen();
         }
-        int j = 0;
         for (int i = 0; i < questionsCount; i++){
             System.out.print("[" + expressions.get(i) + "] |");
-            System.out.print(rightAnswers.get(i) + "|");
-            System.out.println();
+            System.out.print(rightAnswers.get(i) + "| ");
+            System.out.println(answers.get(i));
         }
     }
 }
